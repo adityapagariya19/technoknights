@@ -11,7 +11,7 @@ export default function Dashboard() {
     field: "market_cap",
     direction: "desc",
   });
-
+ 
   // Fetch Market Data
   const { data: coins = [] } = useQuery({
     queryKey: ["marketData"],
