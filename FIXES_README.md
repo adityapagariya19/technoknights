@@ -1,3 +1,145 @@
+# FIXES & CHANGE LOG
+
+This file tracks all major updates, fixes, refactors, and feature additions.
+
+---
+
+## Sidebar.tsx
+- Fixed incorrect animation library import
+
+---
+
+## Card Component
+- Corrected React and tailwind-merge imports
+- Fixed cn spread issue
+- Replaced invalid prop destructuring
+- Refactored component structure
+
+---
+
+## package.json
+- Added required dependencies
+
+---
+
+## StatCard.tsx
+- Created reusable StatCard component
+- Supports string and number values
+- Styled for dark theme with TailwindCSS
+- Uses Card wrapper for layout consistency
+
+---
+
+## SettingsComponents.tsx (Initial)
+- Added reusable UI components:
+  - SettingsSection
+  - ActionBtn (primary, secondary, danger variants)
+  - ToggleSwitch (animated)
+  - PillSelector (active state support)
+  - StyledInput (label + optional right element)
+- Fully typed with TypeScript
+- Styled for dark theme
+
+---
+
+## SectorHeatmap.tsx (Enhancement)
+- Dynamic background intensity based on % change
+- Responsive grid (2/3/6 columns)
+- Added Framer Motion hover animations
+- Added aria-labels
+- Improved contrast and UI polish
+
+---
+
+## MarketTable.tsx (Feature)
+- Added MarketTable component
+- Integrated SectorHeatmap
+- 24h % color coding with arrow icons
+- Add-to-watchlist dynamic state
+- Row selection highlight
+- Framer Motion row animation
+- Fully responsive table
+
+---
+
+## LiveFeedSidebar.tsx (Feature)
+- Added live blockchain block feed
+- Displays block number, miner, txns, time, reward
+- Scrollable layout
+- Live pulse indicator
+- Framer Motion animations
+- Dark dashboard styling
+
+---
+
+## GainersLosersGrid.tsx
+- Added PlayPokerLoseMoney component
+- Created reusable TokenList subcomponent
+- Integrated Framer Motion animations
+- Styled responsive grid layout
+- Fixed missing imports (Card, ArrowUpRight, ArrowDownRight)
+
+---
+
+## DashboardLayout.tsx
+- Extracted reusable DashboardLayout
+- Moved Sidebar and Header into layout
+- Preserved spacing and dark theme
+- No business logic changes
+
+---
+
+## Dashboard.tsx
+- Integrated DashboardLayout
+- Removed inline Sidebar/Header
+- Preserved charts, sorting, watchlist logic
+- Maintained layout structure
+
+---
+
+## MarketTable.tsx (Refactor)
+- Refactored to use Framer Motion
+- Fixed invalid import
+- Corrected export typo
+- Added missing props interface
+- Removed stray character
+- Restored motion row structure
+
+---
+
+## SectorHeatmap.tsx (Fix)
+- Removed invalid JSX
+- Fixed broken imports
+- Properly typed props (Sector interface)
+- Added motion animations
+- Corrected Tailwind layout
+- Dynamic market cap and % display
+
+---
+
+## SettingsComponents.tsx (Refactor)
+- Implemented SettingsSection wrapper
+- Improved ActionBtn variants
+- Added ToggleSwitch logic
+- Refined PillSelector behavior
+- Enhanced StyledInput
+- Fully aligned with Dashboard layout
+
+---
+
+## LiveFeedSidebar.tsx (Fix)
+- Fixed invalid imports
+- Corrected interface naming
+- Fixed props typing
+- Removed duplicate className
+- Repaired broken JSX
+
+---
+
+## GainersLosersGrid.tsx (Update)
+- Reinforced TokenList reuse
+- Maintained animations
+- Confirmed import fixes
 Update Sidebar.tsx
 Fixed incorrect animation library import
 
@@ -118,5 +260,6 @@ Add PlayPokerLoseMoney component with Gainers/Losers list
 - Integrated framer-motion for smooth entry animations
 - Styled using Tailwind for responsive grid and card layout
 - Fixed missing imports: Card, ArrowUpRight, ArrowDownRight
+
 
 
