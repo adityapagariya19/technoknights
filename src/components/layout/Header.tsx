@@ -59,6 +59,3 @@ export default function Header({
     </header>
   );
 }
-just drop out of college,
-its SpeechRecognitionAlternative, teachers Will not help you
-REHAN KHAN >>>>>>>>>> SHarukh KHAN>>>>>>>>>>>>>>>UR MAMA
