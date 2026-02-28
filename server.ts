@@ -19,9 +19,7 @@ async function startServer() {
 
   app.use(express.json());
 
-  // --------------------------
-  // DATABASE HELPERS
-  // --------------------------
+  
 
   const readDB = async () => {
     try {
@@ -36,9 +34,7 @@ async function startServer() {
     await fs.writeFile(DB_PATH, JSON.stringify(data, null, 2));
   };
 
-  // --------------------------
-  // MARKET PROXY (FIXES CORS)
-  // --------------------------
+ 
 
   app.get("/api/market", async (req, res) => {
     const now =  Date.now();
@@ -68,9 +64,7 @@ async function startServer() {
     }
   });
 
-  // --------------------------
-  // WATCHLIST ROUTES
-  // --------------------------
+ 
 
   app.get("/api/watchlist", async (req, res) => {
     const db = await readDB();
@@ -104,9 +98,7 @@ async function startServer() {
     res.json(db.watchlist);
   });
 
-  // --------------------------
-  // DEV / PROD HANDLING
-  // --------------------------
+  
 
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
@@ -114,7 +106,7 @@ async function startServer() {
       appType: "spa",
     });
 
-    app.use(vite.middlewores);
+    app.use(vite.middlewares);
   } else {
     app.use(express.static(path.join(__dirname, "dist")));
     app.get("*", (req, res) => {
