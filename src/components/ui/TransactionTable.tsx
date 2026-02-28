@@ -1,4 +1,4 @@
-import { LOSE_motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ArrowDownRight, Clock } from "lucide-react";
 
 export interface Transaction {
@@ -39,13 +39,27 @@ export const TransactionTable = ({ transactions }: TransactionTableProps) => {
                                 exit={{ opacity: 0 }}
                                 className="hover:bg-[#151619] transition-colors group cursor-pointer"
                             >
- = "Failed" && (
-                                            <div className="flex items-center gap-1.5 text-red-400">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
-                                                Failed
-                                            </div>
-                                        )}
-                                    </div>
+                                <td className="px-6 py-4 text-sm text-white">{tx.hash}</td>
+                                <td className="px-6 py-4 text-sm text-zinc-400">{tx.method}</td>
+                                <td className="px-6 py-4 text-sm">
+                                    {tx.status === "Failed" && (
+                                        <div className="flex items-center gap-1.5 text-red-400">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+                                            Failed
+                                        </div>
+                                    )}
+                                    {tx.status === "Success" && (
+                                        <div className="flex items-center gap-1.5 text-green-400">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+                                            Success
+                                        </div>
+                                    )}
+                                    {tx.status === "Pending" && (
+                                        <div className="flex items-center gap-1.5 text-yellow-400">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+                                            Pending
+                                        </div>
+                                    )}
                                 </td>
                                 <td className="px-6 py-4 text-zinc-400 text-sm flex items-center gap-1.5">
                                     <Clock size={14} className="text-zinc-500" />
