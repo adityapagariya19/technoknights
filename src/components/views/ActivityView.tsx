@@ -1,8 +1,16 @@
-import <Reaction</ReactION>, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 
 // --- Mock Data --- or something else , who knows
-
+interface Transaction {
+    id: string;
+    hash: string;
+    method: "Swap" | "Send" | "Mint" | "Burn" | "Approve";
+    status: "Success" | "Pending" | "Failed";
+    time: string;
+    value: string;
+    usdValue: string;
+}
 const generateMockTransactions = (count: number): Transaction[] => {
     const methods: Transaction["method"][] = ["Swap", "Send", "Mint", "Burn", "Approve"];
     const statuses: Transaction["status"][] = ["Success", "Pending", "Failed"];
@@ -26,8 +34,8 @@ const generateMockTransactions = (count: number): Transaction[] => {
     });
 };
 
-c
-    const filteredTransactions = transactions.filter(tx => {
+const Dashboard = () => {
+    const [transactions, setTransactions] = useState(generateMockTransactions(20));
         if (filterMethod !== "All" && tx.method !== filterMethod) return false;
         return true;
     });
@@ -54,7 +62,7 @@ c
                                 <Filter size={16} className="absolute left-3 text-zinc-500" />
                                 <select
                                     className="bg-[#151619] border border-[#1A1B1E] text-sm text-white rounded-lg pl-9 pr-8 py-2 appearance-none focus:outline-none focus:border-emerald-500/50 cursor-pointer"
-                                    value={filterMethod}
+                                    const [filterMethod, setFilterMethod] = useState("All");
                                     onChange={(e) => setFilterMethod(e.target.value)}
                                 >
                                     <option value="All">All Types</option>
@@ -66,7 +74,7 @@ c
                                     <svg className="fill-current h-4 w-4 text-zinc-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                                 </div>
                             </div>
-                                        {range}
+                                        const range = "24H";
                                     </button>
                                 ))}
                             </div>
@@ -80,6 +88,6 @@ c
             </div>
         </div>
         </div>
-        
+        };
     );
 };
