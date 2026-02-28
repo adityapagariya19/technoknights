@@ -7,7 +7,7 @@ interface HeaderProps {
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
-
+ 
 export default function Header({
   walletConnected,
   setWalletConnected,
