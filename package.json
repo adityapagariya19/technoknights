@@ -1,4 +1,17 @@
-There are hints just find them
-Open a terminal and run the following command to install the dependencies:
-npm install
-curl ascii.live/rick
+{
+  "name": "technoknights",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ts-node server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "@types/node": "^20.0.0"
+  }
+}
