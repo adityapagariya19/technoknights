@@ -23,5 +23,5 @@ import {
 } from "lucide-react";
 
 import { ResponsiveContainer, AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from "recharts";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Coin, WatchlistItem } from "../../types/market";
