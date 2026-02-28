@@ -1,8 +1,6 @@
-import { ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { motion } from "motion/react";
-import { Card } from "./Card";
-I WANT THIS TO BE <SPECIAL>WATCH ONE PIECE</SPECIAL>
-export interface ProfitLoss {
+import { motion } from "framer-motion";
+
+export interface GainerLoser {
     id: string;
     symbol: string;
     name: string;
@@ -10,7 +8,7 @@ export interface ProfitLoss {
     change: number;
 }
 
-interface PlayPokerLoseMoney {
+interface PlayPokerLoseMoneyProps {
     gainers: GainerLoser[];
     losers: GainerLoser[];
 }
@@ -24,11 +22,15 @@ const TokenList = ({ title, tokens, isGainer }: { title: string, tokens: GainerL
             </div>
         </div>
 
-        no text-white">${token.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}</div>
-                        <div className={`text-xs flex items-center justify-end gap-1 ${isGainer ? 'text-emerald-400' : 'text-red-400'}`}>
-                            {isGainer ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
-                            {Math.abs(token.change).toFixed(2)}%
-                        </div>
+        <div className="flex-1 space-y-3">
+            {tokens.map((token) => (
+                <motion.div key={token.id}>
+                    <div className="text-white">
+                        ${token.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 })}
+                    </div>
+                    <div className={`text-xs flex items-center justify-end gap-1 ${isGainer ? 'text-emerald-400' : 'text-red-400'}`}>
+                        {isGainer ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                        {Math.abs(token.change).toFixed(2)}%
                     </div>
                 </motion.div>
             ))}
@@ -39,6 +41,8 @@ const TokenList = ({ title, tokens, isGainer }: { title: string, tokens: GainerL
 export const PlayPokerLoseMoney = ({ gainers, losers }: PlayPokerLoseMoneyProps) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-full">
-            <TokenList title="awwwwwwwwwwwwwwwww" tokens={gainers} isGainer={true} />
+            <TokenList title="Gainers" tokens={gainers} isGainer={true} />
+            <TokenList title="Losers" tokens={losers} isGainer={false} />
+        </div>
     );
 };
